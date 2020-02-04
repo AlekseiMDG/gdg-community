@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">About</string>
+
+    <string name="status">(%s)</string>
+
+    <plurals name="members_count">
+        <item quantity="zero">%d Участников</item>
+        <item quantity="one">%d Участник</item>
+        <item quantity="two">%d Участников</item>
+        <item quantity="many">Участников:%d</item>
+        <item quantity="other">Участников:%d</item>
+    </plurals>
+</resources>

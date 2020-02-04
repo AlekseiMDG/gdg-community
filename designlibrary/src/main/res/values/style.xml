@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Community.Normal" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:textColor">@color/text_normal_color</item>
+    </style>
+
+    <style name="Community.SubTitle" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/title_accent_text_size</item>
+        <item name="android:textColor">@color/text_normal_color</item>
+    </style>
+
+    <style name="Community.Title" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/title_big_text_size</item>
+        <item name="android:textColor">@color/text_normal_color</item>
+    </style>
+
+    <style name="Community.Small.NonAccented" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:textColor">@color/text_non_accented_color</item>
+    </style>
+</resources>
