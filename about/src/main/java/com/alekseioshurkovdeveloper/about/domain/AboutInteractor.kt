@@ -3,6 +3,8 @@ package com.alekseioshurkovdeveloper.about.domain
 import com.alekseioshurkovdeveloper.about.data.AboutGroupRepository
 import com.alekseioshurkovdeveloper.about.domain.model.AboutDomainModel
 import com.alekseioshurkovdeveloper.about.domain.model.AboutLeaderModel
+import com.alekseioshurkovdeveloper.about.domain.model.FabricatedModel
+import com.alekseioshurkovdeveloper.core.OneWayConverter
 import com.alekseioshurkovdeveloper.network.model.about.Community
 import com.alekseioshurkovdeveloper.network.model.leaders.Leader
 import io.reactivex.Observable
@@ -10,7 +12,8 @@ import io.reactivex.functions.BiFunction
 
 const val GROUP = "GDG-Moscow"
 
-class AboutInteractor(private val repository: AboutGroupRepository) {
+class AboutInteractor(private val repository: AboutGroupRepository,
+                      private val converter: OneWayConverter<FabricatedModel, AboutDomainModel>) {
 
     /**
      * Load information for page - About Community
@@ -27,18 +30,7 @@ class AboutInteractor(private val repository: AboutGroupRepository) {
             })
     }
 
-    private fun buildCommonModel(group: Community, leaders: List<Leader>): AboutDomainModel {
-        return AboutDomainModel(
-            group.id,
-            group.name,
-            group.description,
-            group.status,
-            group.localizedLocation,
-            group.members,
-            group.groupPhoto.photoLink,
-            converLeaders(leaders)
-        )
-    }
+    private fun buildCommonModel(group: Community, leaders: List<Leader>) = converter.convert(FabricatedModel(group, leaders))
 
     private fun getInfoAboutGroup() = repository.loadAboutInformation()
 
@@ -46,8 +38,4 @@ class AboutInteractor(private val repository: AboutGroupRepository) {
         val fields = mapOf("role" to "leads")
         return repository.loadInformationAboutLeaders(GROUP, fields)
     }
-
-    private fun converLeaders(list: List<Leader>) =
-        list.map { l -> AboutLeaderModel(l.id, l.name, l.photo.photoLink) }
-
 }

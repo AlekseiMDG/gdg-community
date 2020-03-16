@@ -10,9 +10,9 @@ import javax.inject.Singleton
 const val URL = "https://api.meetup.com/"
 
 @Singleton
-class MeetupServiceCreator {
+class MeetupServiceCreator internal constructor(){
 
-    private var retrofit: Retrofit? = null
+    private var retrofit: Retrofit
 
     init {
         val httpClient = OkHttpClient.Builder()
@@ -29,10 +29,5 @@ class MeetupServiceCreator {
             .build()
     }
 
-
-
-
-    fun <T> getApi(type: Class<T>) = retrofit!!.create(type)
-
-
+    fun <T> getApi(type: Class<T>) = retrofit.create(type)
 }

@@ -78,6 +78,7 @@ class AboutGroupFragment : Fragment() {
 
     private fun buildLeaderChips(leaders: List<LeaderPresentationModel>) {
         chip_group.removeAllViews()
+
         val lp = ViewGroup.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -92,11 +93,13 @@ class AboutGroupFragment : Fragment() {
                 }
 
                 val loadCallback = { drawable: Drawable -> chip.chipIcon = drawable }
+
                 ImageLoaderTarget.loadRoundedImageIntoTarget(
                     this,
                     url = leader.photo,
                     load = loadCallback
                 )
+
                 chip_group.addView(chip)
             }
         }

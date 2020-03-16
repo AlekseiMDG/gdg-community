@@ -1,4 +1,4 @@
-package com.alekseioshurkovdeveloper.about.utils
+package com.alekseioshurkovdeveloper.about.presentation.converter
 
 import com.alekseioshurkovdeveloper.about.domain.model.AboutDomainModel
 import com.alekseioshurkovdeveloper.about.domain.model.AboutLeaderModel
@@ -9,7 +9,7 @@ import com.alekseioshurkovdeveloper.core.OneWayConverter
 /**
  * Converter "Community About Information" from DomainModel to PresentationModel
  */
-class ConverterToPresentationModel : OneWayConverter<AboutPresentationModel, AboutDomainModel>() {
+class AboutPresentationConverter : OneWayConverter<AboutDomainModel, AboutPresentationModel> {
 
     override fun convert(input: AboutDomainModel): AboutPresentationModel {
         return AboutPresentationModel(
