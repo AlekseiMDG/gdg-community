@@ -1,5 +1,6 @@
 package com.alekseioshurkovdeveloper.about.domain
 
+import android.util.Log
 import com.alekseioshurkovdeveloper.about.data.AboutGroupRepository
 import com.alekseioshurkovdeveloper.about.domain.model.AboutDomainModel
 import com.alekseioshurkovdeveloper.about.domain.model.AboutLeaderModel
@@ -26,6 +27,7 @@ class AboutInteractor(private val repository: AboutGroupRepository,
             getInfoAboutGroup(),
             getLeadersInformation(),
             BiFunction<Community, List<Leader>, AboutDomainModel> { group, leaders ->
+                Log.e("-V-", "${group.status.status}")
                 buildCommonModel( group, leaders)
             })
     }

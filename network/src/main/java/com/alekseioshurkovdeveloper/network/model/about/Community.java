@@ -15,7 +15,7 @@ public class Community {
 
     @SerializedName("status")
     @Expose
-    private String status;
+    private Status status;
 
     @SerializedName("link")
     @Expose
@@ -133,11 +133,11 @@ public class Community {
         this.name = name;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

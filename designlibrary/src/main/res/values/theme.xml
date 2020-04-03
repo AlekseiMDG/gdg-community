@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.GdgMeetUp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/reply_blue_50_alpha_060</item>
+        <item name="android:navigationBarColor">@color/nav_bar</item>
+    </style>
+</resources>
