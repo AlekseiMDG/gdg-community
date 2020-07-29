@@ -21,22 +21,22 @@ data class AboutPresentationModel(
     val photo: String,
 
     /**
-     *
+     * Group`s status
      */
     val status: String,
 
     /**
-     *
+     * Group`s location
      */
     val location: String,
 
     /**
-     *
+     * Amoutn group`s member
      */
     val count: Int,
 
     /**
-     *
+     * List of leaders
      */
     val leaders: List<LeaderPresentationModel>
 )

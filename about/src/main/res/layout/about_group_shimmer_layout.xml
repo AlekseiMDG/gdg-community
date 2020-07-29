@@ -2,11 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/shimmer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     <View
-            android:id="@+id/logo_community"
+            android:id="@+id/shimmer_logo_community"
             android:layout_width="0dp"
             android:layout_height="@dimen/height_logo_photo"
             android:layout_marginStart="@dimen/margin_small"
@@ -18,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     <View
-            android:id="@+id/name"
+            android:id="@+id/shimmer_name"
             android:layout_width="0dp"
             android:layout_height="18dp"
             android:layout_marginStart="@dimen/margin_medium"
@@ -26,10 +27,10 @@
             android:background="@color/background_shimmer"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo_community" />
+            app:layout_constraintTop_toBottomOf="@+id/shimmer_logo_community" />
 
     <View
-            android:id="@+id/label_member"
+            android:id="@+id/shimmer_label_member"
             android:layout_width="0dp"
             android:layout_height="14dp"
             android:layout_marginTop="@dimen/margin_medium"
@@ -38,12 +39,12 @@
             android:textAppearance="@style/Community.Normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
+            app:layout_constraintTop_toBottomOf="@+id/shimmer_name" />
 
     <View
-            android:id="@+id/description"
+            android:id="@+id/shimmer_description"
             android:layout_width="0dp"
-            android:layout_height="154dp"
+            android:layout_height="254dp"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_large"
             android:layout_marginEnd="@dimen/margin_medium"
@@ -51,10 +52,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chip_group" />
+            app:layout_constraintTop_toBottomOf="@+id/shimmer_chip_group" />
 
     <View
-            android:id="@+id/chip_group"
+            android:id="@+id/shimmer_chip_group"
             android:layout_width="64dp"
             android:layout_height="18dp"
             android:layout_marginStart="8dp"
@@ -62,18 +63,18 @@
             android:background="@drawable/shimmer_chip"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_member" />
+            app:layout_constraintTop_toBottomOf="@+id/shimmer_label_member" />
 
     <View
-            android:id="@+id/chip_group2"
+            android:id="@+id/shimmer_chip_group2"
             android:layout_width="64dp"
             android:layout_height="18dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="@dimen/margin_medium"
             android:background="@drawable/shimmer_chip"
             android:orientation="horizontal"
-            app:layout_constraintStart_toEndOf="@+id/chip_group"
-            app:layout_constraintTop_toBottomOf="@+id/label_member" />
+            app:layout_constraintStart_toEndOf="@+id/shimmer_chip_group"
+            app:layout_constraintTop_toBottomOf="@+id/shimmer_label_member" />
 
     <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"

@@ -16,7 +16,7 @@ class AboutDomainConverter: OneWayConverter<FabricatedModel, AboutDomainModel> {
             input.group.id,
             input.group.name,
             input.group.description,
-            input.group.status,
+            input.group.status.status,
             input.group.localizedLocation,
             input.group.members,
             input.group.groupPhoto.photoLink,

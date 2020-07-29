@@ -19,9 +19,15 @@ import com.alekseioshurkovdeveloper.core.showImage
 import com.alekseioshurkovdeveloper.network.di.NetworkComponent
 import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.about_group_fragment.*
+import kotlinx.android.synthetic.main.about_group_fragment.chip_group
+import kotlinx.android.synthetic.main.about_group_fragment.description
+import kotlinx.android.synthetic.main.about_group_fragment.label_member
+import kotlinx.android.synthetic.main.about_group_fragment.logo_community
+import kotlinx.android.synthetic.main.about_group_fragment.name
+import kotlinx.android.synthetic.main.about_group_shimmer_layout.*
 
 /**
- * Is page with community description, common information and leaders this community
+ * It's page which desскшиуы common information and leaders this community
  */
 class AboutGroupFragment : Fragment() {
 
@@ -40,14 +46,14 @@ class AboutGroupFragment : Fragment() {
         return inflater.inflate(R.layout.about_group_fragment, container, false)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        component.releaseComponent()
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initViewModel()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        component.releaseComponent()
     }
 
     private fun initViewModel() {
@@ -55,7 +61,26 @@ class AboutGroupFragment : Fragment() {
         viewModel = ViewModelProviders.of(this, factory)
             .get(AboutGroupViewModel::class.java)
 
-        viewModel.aboutUiModel.observe(this, Observer { updateUI(it) })
+        viewModel.getLoadinState().observe(viewLifecycleOwner, Observer { changeState(it) })
+        viewModel.getAboutUI().observe(this, Observer { updateUI(it) })
+    }
+
+    private fun changeState(isLoading: Boolean) {
+        if (isLoading){
+            showLoadingAnimation()
+        } else {
+            hideLoadingAnimation()
+        }
+    }
+
+    private fun hideLoadingAnimation() {
+        shimmer.visibility = View.GONE
+        content_body.visibility = View.VISIBLE
+    }
+
+    private fun showLoadingAnimation() {
+        shimmer.visibility = View.VISIBLE
+        content_body.visibility = View.GONE
     }
 
     private fun updateUI(model: AboutPresentationModel) {
