@@ -26,15 +26,16 @@ import kotlinx.android.synthetic.main.about_group_fragment.*
 class AboutGroupFragment : Fragment() {
 
     companion object {
+        @JvmStatic
         fun newInstance() = AboutGroupFragment()
     }
 
     private val component = AboutComponent.initAndGet(NetworkComponent.get())
-
     private lateinit var viewModel: AboutGroupViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?,
+                              savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.about_group_fragment, container, false)
     }
@@ -51,7 +52,8 @@ class AboutGroupFragment : Fragment() {
 
     private fun initViewModel() {
         val factory = component.aboutGroupFactory
-        viewModel = ViewModelProviders.of(this, factory).get(AboutGroupViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, factory)
+            .get(AboutGroupViewModel::class.java)
 
         viewModel.aboutUiModel.observe(this, Observer { updateUI(it) })
     }

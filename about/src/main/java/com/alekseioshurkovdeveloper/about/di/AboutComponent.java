@@ -5,7 +5,8 @@ import com.alekseioshurkovdeveloper.network.di.NetworkComponent;
 
 import dagger.Component;
 
-@Component(dependencies = {NetworkComponent.class}, modules = {AboutModule.class})
+@Component(dependencies = {NetworkComponent.class},
+        modules = {AboutModule.class})
 @AboutGroupScope
 public abstract class AboutComponent {
     private static volatile AboutComponent sAboutGroupFeatureComponent;

@@ -1,2 +1,3 @@
+include ':event'
 include ':app', ':about', ':network', ':designlibrary', ':core'
 rootProject.name='MeetUpClient'
